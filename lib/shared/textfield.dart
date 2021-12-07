@@ -1,3 +1,4 @@
+import 'package:bi_tracer/shared/constants.dart';
 import 'package:flutter/material.dart';
 
 class LoginTextField extends StatefulWidget {
@@ -8,14 +9,14 @@ class LoginTextField extends StatefulWidget {
     required this.label,
     this.suffixIcon,
     required this.validate,
- //   this.focusNode,
+    this.focusNode,
   }) : super(key: key);
   TextInputType keyboardType;
   Widget? suffixIcon;
   TextEditingController controller;
   String label;
   String? Function(String?) validate;
- // FocusNode? focusNode;
+  FocusNode? focusNode;
   @override
   _LoginTextFieldState createState() => _LoginTextFieldState();
 }
@@ -34,12 +35,20 @@ class _LoginTextFieldState extends State<LoginTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-     //   focusNode: widget.focusNode,
+        focusNode: widget.focusNode,
         controller: widget.controller,
         keyboardType: widget.keyboardType,
         obscureText: visible!,
         style: const TextStyle(color: Colors.black),
         decoration: InputDecoration(
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(10),
+            borderSide: const BorderSide(color: mainColor, width: 1),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(4),
+            borderSide: const BorderSide(color: mainColor, width: 1),
+          ),
           suffixIcon: widget.suffixIcon ??
               (isPass!
                   ? IconButton(
@@ -54,21 +63,9 @@ class _LoginTextFieldState extends State<LoginTextField> {
                       ),
                     )
                   : widget.suffixIcon),
-          border: OutlineInputBorder(),
           labelText: widget.label,
-
-          labelStyle: TextStyle(color: Colors.black54),
-          focusedBorder: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(4)),
-            borderSide: BorderSide(width: 1, color: Colors.deepPurple),
-          ),
-
-          // border: OutlineInputBorder(
-          //   borderSide: const BorderSide(color: Colors.grey, width: 0.0),
-          // ),
-          enabledBorder: const OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10)),
-            borderSide: BorderSide(width: 1, color: Colors.deepPurple),
+          border: OutlineInputBorder(
+            borderSide: const BorderSide(color: mainColor, width: 1),
           ),
         ),
         validator: widget.validate);
@@ -124,7 +121,7 @@ class _AnimatedLoginTextFeildState extends State<AnimatedLoginTextFeild> {
       width: animatedWidth,
       duration: Duration(milliseconds: 200),
       child: LoginTextField(
-      //  focusNode: focusNode,
+        focusNode: focusNode,
         controller: widget.controller,
         keyboardType: widget.keyboardType,
         suffixIcon: widget.suffixIcon,

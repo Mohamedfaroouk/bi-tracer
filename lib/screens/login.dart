@@ -17,58 +17,57 @@ class _LogInState extends State<LogIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-body: Container(
-  width: double.infinity,
-
-  child: Padding(
-    padding: const EdgeInsets.symmetric(vertical: 15
-    ,horizontal: 15),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-Row(
-  mainAxisAlignment: MainAxisAlignment.center,
-
-  children: [
-        Container(
-    height: 200,
-      child: Image.asset('images/logo.png'),
-    ),
-
-  ],
-),
-        SizedBox(height: 20,),
-        LoginTextField(
-          keyboardType: TextInputType.emailAddress,
-          label: 'Enter Email',
-          controller: emailController,
-          suffixIcon: Icon(Icons.email, color: Colors.black,),
-          validate: Validation().emailValidation,
-
+      body: Container(
+        width: double.infinity,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    height: 200,
+                    child: Image.asset('images/logo.png'),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              LoginTextField(
+                keyboardType: TextInputType.emailAddress,
+                label: 'Enter Email',
+                controller: emailController,
+                suffixIcon: Icon(
+                  Icons.email,
+                  color: Colors.black,
+                ),
+                validate: Validation().emailValidation,
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              LoginTextField(
+                keyboardType: TextInputType.visiblePassword,
+                label: 'Enter Password',
+                controller: passController,
+                validate: Validation().passwordValidation,
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              MaterialButtonDesign(
+                  pressed: () {},
+                  minWidth: 200,
+                  color: mainColor,
+                  label: 'Login')
+            ],
+          ),
         ),
-        SizedBox(
-          height: 15,
-        ),
-        LoginTextField(
-          keyboardType: TextInputType.visiblePassword,
-          label: 'Enter Password',
-          controller: passController,
-          validate: Validation().passwordValidation,
-
-        ),
-        SizedBox(
-          height: 15,
-        ),
-        MaterialButtonDesign(pressed: (){},
-        minWidth: 200,
-        color: mainColor,
-        label: 'Login')
-      ],
-
-    ),
-  ),
-),
+      ),
     );
   }
 }
