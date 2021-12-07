@@ -8,7 +8,7 @@ Widget MaterialButtonDesign(
   return MaterialButton(
     child: Text(
       label,
-      style: TextStyle(fontSize: 16),
+      style: TextStyle(fontSize: 16, color: Colors.white),
     ),
     onPressed: pressed,
     color: color,
