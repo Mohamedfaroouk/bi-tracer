@@ -15,9 +15,9 @@ class _RegisterDoctorState extends State<RegisterDoctor> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   late TextEditingController doctorName;
   late TextEditingController PhoneNumber;
-  late TextEditingController motherPhone;
-  late TextEditingController fatherPhone;
-  late TextEditingController email;
+  late TextEditingController adress;
+  late TextEditingController emailAdress;
+  late TextEditingController specialization;
   late TextEditingController password;
   late TextEditingController confirmPassword;
   @override
@@ -26,9 +26,9 @@ class _RegisterDoctorState extends State<RegisterDoctor> {
     super.initState();
     doctorName = TextEditingController();
     PhoneNumber = TextEditingController();
-    motherPhone = TextEditingController();
-    fatherPhone = TextEditingController();
-    email = TextEditingController();
+    adress = TextEditingController();
+    emailAdress = TextEditingController();
+    specialization = TextEditingController();
     password = TextEditingController();
     confirmPassword = TextEditingController();
   }
@@ -37,9 +37,9 @@ class _RegisterDoctorState extends State<RegisterDoctor> {
   void dispose() {
     doctorName.dispose();
     PhoneNumber.dispose();
-    motherPhone.dispose();
-    fatherPhone.dispose();
-    email.dispose();
+    adress.dispose();
+    emailAdress.dispose();
+    specialization.dispose();
     password.dispose();
     confirmPassword.dispose();
     super.dispose();
@@ -77,7 +77,7 @@ class _RegisterDoctorState extends State<RegisterDoctor> {
                   height: 15,
                 ),
                 LoginTextField(
-                    controller: motherPhone,
+                    controller: adress,
                     keyboardType: TextInputType.text,
                     label: "Adress",
                     validate: Validation().defaultValidation),
@@ -85,7 +85,7 @@ class _RegisterDoctorState extends State<RegisterDoctor> {
                   height: 15,
                 ),
                 LoginTextField(
-                    controller: fatherPhone,
+                    controller: emailAdress,
                     keyboardType: TextInputType.emailAddress,
                     label: "Email Adress",
                     validate: Validation().defaultValidation),
@@ -93,9 +93,9 @@ class _RegisterDoctorState extends State<RegisterDoctor> {
                   height: 15,
                 ),
                 LoginTextField(
-                    controller: email,
+                    controller: specialization,
                     keyboardType: TextInputType.visiblePassword,
-                    label: "Spezialisierung",
+                    label: "Specialization",
                     validate: Validation().emailValidation),
                 SizedBox(
                   height: 15,

@@ -2,6 +2,7 @@ import 'package:bi_tracer/shared/auth_button.dart';
 import 'package:bi_tracer/shared/constants.dart';
 import 'package:bi_tracer/shared/textfield.dart';
 import 'package:bi_tracer/shared/validation.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LogIn extends StatefulWidget {
@@ -14,6 +15,18 @@ class LogIn extends StatefulWidget {
 class _LogInState extends State<LogIn> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      if (user == null) {
+      } else {
+      // Navigator.pushReplacementNamed(context, FirstScreen.id);
+        print('User is signed in!');
+      }
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
