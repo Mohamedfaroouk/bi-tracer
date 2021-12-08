@@ -59,7 +59,8 @@ class _ResetPasswordState extends State<ResetPassword> {
                   controller: restPassword,
                   keyboardType: TextInputType.visiblePassword,
                   label: "Confirm Password",
-                  validate: Validation().passwordValidation),
+                  validate: Validation().passwordValidation
+                ),
               SizedBox(
                 height: 15,
               ),
@@ -69,7 +70,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                       print("S");
                     }
                   },
-                  minWidth: double.infinity,
+                  minWidth: 250,
                   color: mainColor,
                   label: "Reset"),
             ],

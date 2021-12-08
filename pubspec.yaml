@@ -32,6 +32,12 @@ dependencies:
   firebase_messaging: ^11.1.0
   cloud_firestore: ^3.1.0
   firebase_auth: ^3.3.0
+<<<<<<< HEAD
+=======
+  google_nav_bar: ^5.0.5
+  font_awesome_flutter: ^9.2.0
+
+>>>>>>> d6dd6dfef93e390925cc00065ae004773a01d786
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -156,6 +156,23 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+<<<<<<< HEAD
+=======
+  font_awesome_flutter:
+    dependency: "direct main"
+    description:
+      name: font_awesome_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "9.2.0"
+  google_nav_bar:
+    dependency: "direct main"
+    description:
+      name: google_nav_bar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.0.5"
+>>>>>>> d6dd6dfef93e390925cc00065ae004773a01d786
   http_parser:
     dependency: transitive
     description:

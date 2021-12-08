@@ -4,42 +4,42 @@ import 'package:bi_tracer/shared/textfield.dart';
 import 'package:bi_tracer/shared/validation.dart';
 import 'package:flutter/material.dart';
 
-class RegisterMother extends StatefulWidget {
-  const RegisterMother({Key? key}) : super(key: key);
+class RegisterDoctor extends StatefulWidget {
+  const RegisterDoctor({Key? key}) : super(key: key);
 
   @override
-  _RegisterMotherState createState() => _RegisterMotherState();
+  _RegisterDoctorState createState() => _RegisterDoctorState();
 }
 
-class _RegisterMotherState extends State<RegisterMother> {
+class _RegisterDoctorState extends State<RegisterDoctor> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  late TextEditingController motherName;
-  late TextEditingController fatherName;
-  late TextEditingController motherPhone;
-  late TextEditingController fatherPhone;
-  late TextEditingController email;
+  late TextEditingController doctorName;
+  late TextEditingController PhoneNumber;
+  late TextEditingController adress;
+  late TextEditingController emailAdress;
+  late TextEditingController specialization;
   late TextEditingController password;
   late TextEditingController confirmPassword;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    motherName = TextEditingController();
-    fatherName = TextEditingController();
-    motherPhone = TextEditingController();
-    fatherPhone = TextEditingController();
-    email = TextEditingController();
+    doctorName = TextEditingController();
+    PhoneNumber = TextEditingController();
+    adress = TextEditingController();
+    emailAdress = TextEditingController();
+    specialization = TextEditingController();
     password = TextEditingController();
     confirmPassword = TextEditingController();
   }
 
   @override
   void dispose() {
-    motherName.dispose();
-    fatherName.dispose();
-    motherPhone.dispose();
-    fatherPhone.dispose();
-    email.dispose();
+    doctorName.dispose();
+    PhoneNumber.dispose();
+    adress.dispose();
+    emailAdress.dispose();
+    specialization.dispose();
     password.dispose();
     confirmPassword.dispose();
     super.dispose();
@@ -49,7 +49,7 @@ class _RegisterMotherState extends State<RegisterMother> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Register"),
+        title: Text("Doctor Register"),
       ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
@@ -61,41 +61,41 @@ class _RegisterMotherState extends State<RegisterMother> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 LoginTextField(
-                    controller: motherName,
+                    controller: doctorName,
                     keyboardType: TextInputType.name,
-                    label: "Mother Name",
+                    label: "Doctor Name",
                     validate: Validation().defaultValidation),
                 SizedBox(
                   height: 15,
                 ),
                 LoginTextField(
-                    controller: fatherName,
-                    keyboardType: TextInputType.name,
-                    label: " Father Name",
-                    validate: Validation().defaultValidation),
-                SizedBox(
-                  height: 15,
-                ),
-                LoginTextField(
-                    controller: motherPhone,
+                    controller: PhoneNumber,
                     keyboardType: TextInputType.phone,
-                    label: "Mother Phone Number",
+                    label: "Phone Number",
                     validate: Validation().defaultValidation),
                 SizedBox(
                   height: 15,
                 ),
                 LoginTextField(
-                    controller: fatherPhone,
-                    keyboardType: TextInputType.phone,
-                    label: "Father Phone Number",
+                    controller: adress,
+                    keyboardType: TextInputType.text,
+                    label: "Adress",
                     validate: Validation().defaultValidation),
                 SizedBox(
                   height: 15,
                 ),
                 LoginTextField(
-                    controller: email,
+                    controller: emailAdress,
                     keyboardType: TextInputType.emailAddress,
-                    label: "Email",
+                    label: "Email Adress",
+                    validate: Validation().defaultValidation),
+                SizedBox(
+                  height: 15,
+                ),
+                LoginTextField(
+                    controller: specialization,
+                    keyboardType: TextInputType.visiblePassword,
+                    label: "Specialization",
                     validate: Validation().emailValidation),
                 SizedBox(
                   height: 15,
