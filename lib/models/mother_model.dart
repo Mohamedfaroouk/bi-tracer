@@ -4,7 +4,7 @@ import 'package:bi_tracer/models/baby_model.dart';
 import 'package:bi_tracer/models/doctor_model.dart';
 
 class Mother {
-  String? motherName;
+  String? name;
   String? fatherName;
   String? motherPhone;
   String? fatherPhone;
@@ -13,7 +13,7 @@ class Mother {
   String? uid;
   Doctor? doctor;
   Mother({
-    this.motherName,
+    this.name,
     this.fatherName,
     this.motherPhone,
     this.fatherPhone,
@@ -25,7 +25,7 @@ class Mother {
 
   Map<String, dynamic> toMap() {
     return {
-      'motherName': motherName,
+      'name': name,
       'fatherName': fatherName,
       'motherPhone': motherPhone,
       'fatherPhone': fatherPhone,
@@ -38,7 +38,7 @@ class Mother {
 
   factory Mother.fromMap(Map<String, dynamic> map) {
     return Mother(
-      motherName: map['motherName'] != null ? map['motherName'] : null,
+      name: map['name'] != null ? map['name'] : null,
       fatherName: map['fatherName'] != null ? map['fatherName'] : null,
       motherPhone: map['motherPhone'] != null ? map['motherPhone'] : null,
       fatherPhone: map['fatherPhone'] != null ? map['fatherPhone'] : null,
@@ -54,7 +54,7 @@ class Mother {
   factory Mother.fromJson(String source) => Mother.fromMap(json.decode(source));
 
   Mother copyWith({
-    String? motherName,
+    String? name,
     String? fatherName,
     String? motherPhone,
     String? fatherPhone,
@@ -64,7 +64,7 @@ class Mother {
     Doctor? doctor,
   }) {
     return Mother(
-      motherName: motherName ?? this.motherName,
+      name: name ?? this.name,
       fatherName: fatherName ?? this.fatherName,
       motherPhone: motherPhone ?? this.motherPhone,
       fatherPhone: fatherPhone ?? this.fatherPhone,

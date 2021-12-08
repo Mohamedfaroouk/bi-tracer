@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:bi_tracer/models/mother_model.dart';
 
 class Doctor {
-  String? doctorName;
+  String? name;
   String? phoneNumber;
   String? adress;
   String? uid;
@@ -11,9 +11,8 @@ class Doctor {
   String? specialization;
   String? password;
   String? confirmPassword;
-  List<Mother> mothers;
   Doctor({
-    this.doctorName,
+    this.name,
     this.phoneNumber,
     this.adress,
     this.uid,
@@ -21,12 +20,11 @@ class Doctor {
     this.specialization,
     this.password,
     this.confirmPassword,
-    this.mothers = const [],
   });
 
   Map<String, dynamic> toMap() {
     return {
-      'doctorName': doctorName,
+      'name': name,
       'phoneNumber': phoneNumber,
       'adress': adress,
       'uid': uid,
@@ -34,13 +32,12 @@ class Doctor {
       'specialization': specialization,
       'password': password,
       'confirmPassword': confirmPassword,
-      'mothers': mothers.map((x) => x.toMap()).toList(),
     };
   }
 
   factory Doctor.fromMap(Map<String, dynamic> map) {
     return Doctor(
-      doctorName: map['doctorName'] != null ? map['doctorName'] : null,
+      name: map['name'] != null ? map['name'] : null,
       phoneNumber: map['phoneNumber'] != null ? map['phoneNumber'] : null,
       adress: map['adress'] != null ? map['adress'] : null,
       uid: map['uid'] != null ? map['uid'] : null,
@@ -50,7 +47,6 @@ class Doctor {
       password: map['password'] != null ? map['password'] : null,
       confirmPassword:
           map['confirmPassword'] != null ? map['confirmPassword'] : null,
-      mothers: List<Mother>.from(map['mothers']?.map((x) => Mother.fromMap(x))),
     );
   }
 
@@ -59,7 +55,7 @@ class Doctor {
   factory Doctor.fromJson(String source) => Doctor.fromMap(json.decode(source));
 
   Doctor copyWith({
-    String? doctorName,
+    String? name,
     String? phoneNumber,
     String? adress,
     String? uid,
@@ -67,10 +63,9 @@ class Doctor {
     String? specialization,
     String? password,
     String? confirmPassword,
-    List<Mother>? mothers,
   }) {
     return Doctor(
-      doctorName: doctorName ?? this.doctorName,
+      name: name ?? this.name,
       phoneNumber: phoneNumber ?? this.phoneNumber,
       adress: adress ?? this.adress,
       uid: uid ?? this.uid,
@@ -78,7 +73,6 @@ class Doctor {
       specialization: specialization ?? this.specialization,
       password: password ?? this.password,
       confirmPassword: confirmPassword ?? this.confirmPassword,
-      mothers: mothers ?? this.mothers,
     );
   }
 }
