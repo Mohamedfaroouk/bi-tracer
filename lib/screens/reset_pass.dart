@@ -43,6 +43,18 @@ class _ResetPasswordState extends State<ResetPassword> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    height: 200,
+                    child: Image.asset('images/logo.png'),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
               LoginTextField(
                   controller: restPassword,
                   keyboardType: TextInputType.visiblePassword,

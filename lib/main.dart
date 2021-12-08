@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
               iconTheme: IconThemeData(color: Colors.black)),
           scaffoldBackgroundColor: backgroundColor,
           primarySwatch: mainColor),
-      home: Register(),
+      home: LogIn(),
     );
   }
 }
