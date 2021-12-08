@@ -1,6 +1,5 @@
-import 'package:bi_tracer/screens/home.dart';
 import 'package:bi_tracer/screens/login.dart';
-import 'package:bi_tracer/screens/register_doctor.dart';
+import 'package:bi_tracer/screens/mother_details.dart';
 import 'package:bi_tracer/screens/register_mother.dart';
 import 'package:bi_tracer/screens/reset_pass.dart';
 import 'package:bi_tracer/shared/constants.dart';
@@ -27,9 +26,8 @@ class MyApp extends StatelessWidget {
               elevation: 0,
               iconTheme: IconThemeData(color: Colors.black)),
           scaffoldBackgroundColor: backgroundColor,
-          primarySwatch: mainColor,
-        visualDensity: VisualDensity.adaptivePlatformDensity,),
-      home: Home(),
+          primarySwatch: mainColor),
+      home: MotherDetails(),
     );
   }
 }
