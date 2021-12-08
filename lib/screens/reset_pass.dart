@@ -43,11 +43,24 @@ class _ResetPasswordState extends State<ResetPassword> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    height: 200,
+                    child: Image.asset('images/logo.png'),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
               LoginTextField(
                   controller: restPassword,
                   keyboardType: TextInputType.visiblePassword,
                   label: "Confirm Password",
-                  validate: Validation().passwordValidation),
+                  validate: Validation().passwordValidation
+                ),
               SizedBox(
                 height: 15,
               ),
@@ -57,7 +70,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                       print("S");
                     }
                   },
-                  minWidth: double.infinity,
+                  minWidth: 250,
                   color: mainColor,
                   label: "Reset"),
             ],

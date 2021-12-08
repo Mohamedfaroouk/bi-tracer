@@ -61,7 +61,7 @@ class _LogInState extends State<LogIn> {
               ),
               MaterialButtonDesign(
                   pressed: () {},
-                  minWidth: 200,
+                  minWidth: 250,
                   color: mainColor,
                   label: 'Login')
             ],

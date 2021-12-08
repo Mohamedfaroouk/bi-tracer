@@ -4,14 +4,14 @@ import 'package:bi_tracer/shared/textfield.dart';
 import 'package:bi_tracer/shared/validation.dart';
 import 'package:flutter/material.dart';
 
-class Register extends StatefulWidget {
-  const Register({Key? key}) : super(key: key);
+class RegisterMother extends StatefulWidget {
+  const RegisterMother({Key? key}) : super(key: key);
 
   @override
-  _RegisterState createState() => _RegisterState();
+  _RegisterMotherState createState() => _RegisterMotherState();
 }
 
-class _RegisterState extends State<Register> {
+class _RegisterMotherState extends State<RegisterMother> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   late TextEditingController motherName;
   late TextEditingController fatherName;
@@ -54,7 +54,7 @@ class _RegisterState extends State<Register> {
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Form(
             key: formKey,
             child: Column(
@@ -125,7 +125,7 @@ class _RegisterState extends State<Register> {
                         print("S");
                       }
                     },
-                    minWidth: double.infinity,
+                    minWidth: 300,
                     color: mainColor,
                     label: "Register"),
                 SizedBox(
