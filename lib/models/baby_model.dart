@@ -17,6 +17,7 @@ class Baby {
   bool? showGps;
   bool? showHeartpulse;
   bool? showYellowColor;
+  bool? showCamera;
   Mother? mother;
   Baby({
     this.name,
@@ -33,6 +34,7 @@ class Baby {
     this.showGps,
     this.showHeartpulse,
     this.showYellowColor,
+    this.showCamera,
     this.mother,
   });
 
@@ -52,6 +54,7 @@ class Baby {
       'showGps': showGps,
       'showHeartpulse': showHeartpulse,
       'showYellowColor': showYellowColor,
+      'showCamera': showCamera,
       'mother': mother?.toMap(),
     };
   }
@@ -74,6 +77,7 @@ class Baby {
           map['showHeartpulse'] != null ? map['showHeartpulse'] : null,
       showYellowColor:
           map['showYellowColor'] != null ? map['showYellowColor'] : null,
+      showCamera: map['showCamera'] != null ? map['showCamera'] : null,
       mother: map['mother'] != null ? Mother.fromMap(map['mother']) : null,
     );
   }
@@ -97,6 +101,7 @@ class Baby {
     bool? showGps,
     bool? showHeartpulse,
     bool? showYellowColor,
+    bool? showCamera,
     Mother? mother,
   }) {
     return Baby(
@@ -114,6 +119,7 @@ class Baby {
       showGps: showGps ?? this.showGps,
       showHeartpulse: showHeartpulse ?? this.showHeartpulse,
       showYellowColor: showYellowColor ?? this.showYellowColor,
+      showCamera: showCamera ?? this.showCamera,
       mother: mother ?? this.mother,
     );
   }
