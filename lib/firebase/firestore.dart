@@ -3,6 +3,7 @@ import 'package:bi_tracer/models/doctor_model.dart';
 import 'package:bi_tracer/models/mother_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class FireStoreHelper {
   static FirebaseFirestore firestore = FirebaseFirestore.instance;
@@ -46,5 +47,9 @@ class FireStoreHelper {
         .collection('babies')
         .doc(babyId)
         .snapshots();
+  }
+
+  static showOrNot(babyid, field, bool value) {
+    firestore.collection('babies').doc(babyid).update({field: value});
   }
 }

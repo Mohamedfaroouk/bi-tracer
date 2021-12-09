@@ -43,7 +43,7 @@ Widget streamDesign(Stream<QuerySnapshot> stream, model, String type) {
                           context: context,
                           route: DoctorDetails(doctor: list[index]));
                     }
-                    if (type == "child") {
+                    if (type == "baby") {
                       navigate(
                           context: context,
                           route: BabyDetails(baby: list[index]));

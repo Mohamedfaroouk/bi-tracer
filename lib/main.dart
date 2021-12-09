@@ -1,3 +1,5 @@
+import 'package:bi_tracer/models/baby_model.dart';
+import 'package:bi_tracer/screens/babies_details.dart';
 import 'package:bi_tracer/screens/home.dart';
 import 'package:bi_tracer/screens/login.dart';
 import 'package:bi_tracer/screens/mother_details.dart';
