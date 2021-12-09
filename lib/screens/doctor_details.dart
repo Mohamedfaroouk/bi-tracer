@@ -1,25 +1,24 @@
-import 'package:bi_tracer/models/mother_model.dart';
+import 'package:bi_tracer/models/doctor_model.dart';
 import 'package:bi_tracer/shared/auth_button.dart';
 import 'package:bi_tracer/shared/constants.dart';
 import 'package:bi_tracer/shared/text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class MotherDetails extends StatelessWidget {
-  MotherDetails({Key? key, required this.mother}) : super(key: key);
-  Mother mother;
+class DoctorDetails extends StatelessWidget {
+  DoctorDetails({Key? key, required this.doctor}) : super(key: key);
+  Doctor doctor;
   @override
   Widget build(BuildContext context) {
-    mother = Mother(
-      email: "sdsd@gmail.com",
+    doctor = Doctor(
+      emailAdress: "sdsd@gmail.com",
       name: "sara ahmed ",
-      fatherName: "ahmed",
-      fatherPhone: "010123123",
-      motherPhone: "0123124124",
+      specialization: "ahmed",
+      phoneNumber: "010123123",
     );
     return Scaffold(
       appBar: AppBar(
-        title: Text("Mother Profile"),
+        title: Text("Doctor Profile"),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10),
@@ -42,37 +41,31 @@ class MotherDetails extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               FaIcon(
-                                FontAwesomeIcons.female,
+                                FontAwesomeIcons.userMd,
                                 color: Colors.white,
                                 size: 40,
                               ),
-                              myText(mother.name!.toUpperCase(),
+                              myText("Dr. " + doctor.name!.toUpperCase(),
                                   size: 30, color: Colors.white),
                             ],
                           ),
                         ))),
                 ListTile(
-                  title: Text("Mother number"),
+                  title: Text("Doctor number"),
                   trailing: FaIcon(FontAwesomeIcons.phone),
-                  subtitle: Text(mother.motherPhone!),
+                  subtitle: Text(doctor.phoneNumber!),
                 ),
                 Divider(),
                 ListTile(
                   trailing: FaIcon(FontAwesomeIcons.envelope),
-                  title: Text("Mother Email"),
-                  subtitle: Text(mother.email!),
+                  title: Text("Doctor Email"),
+                  subtitle: Text(doctor.emailAdress!),
                 ),
                 Divider(),
                 ListTile(
-                  title: Text("Husband Name"),
+                  title: Text("Doctor Specialization"),
                   trailing: FaIcon(FontAwesomeIcons.male),
-                  subtitle: Text(mother.fatherName!),
-                ),
-                Divider(),
-                ListTile(
-                  trailing: FaIcon(FontAwesomeIcons.phone),
-                  title: Text("Husband Number"),
-                  subtitle: Text(mother.fatherPhone!),
+                  subtitle: Text(doctor.specialization!),
                 ),
                 Divider(),
                 MaterialButtonDesign(
@@ -81,15 +74,7 @@ class MotherDetails extends StatelessWidget {
                     },
                     minWidth: 300,
                     color: mainColor,
-                    label: "Babies"),
-                MaterialButtonDesign(
-                    pressed: () {
-                      print("S");
-                    },
-                    minWidth: 300,
-                    color: mainColor,
-                    label: "Add Baby"),
-                Divider(),
+                    label: "Patients"),
               ],
             ),
           ),
