@@ -1,6 +1,9 @@
 import 'package:bi_tracer/models/doctor_model.dart';
+import 'package:bi_tracer/screens/add_patient.dart';
+import 'package:bi_tracer/screens/patients.dart';
 import 'package:bi_tracer/shared/auth_button.dart';
 import 'package:bi_tracer/shared/constants.dart';
+import 'package:bi_tracer/shared/navigator.dart';
 import 'package:bi_tracer/shared/text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -70,11 +73,21 @@ class DoctorDetails extends StatelessWidget {
                 Divider(),
                 MaterialButtonDesign(
                     pressed: () {
-                      print("S");
+                      navigate(
+                          context: context, route: Patients(doctor: doctor));
                     },
                     minWidth: 300,
                     color: mainColor,
                     label: "Patients"),
+                Divider(),
+                MaterialButtonDesign(
+                    pressed: () {
+                      navigate(
+                          context: context, route: AddPatient(doctor: doctor));
+                    },
+                    minWidth: 300,
+                    color: mainColor,
+                    label: "Add Patients"),
               ],
             ),
           ),
