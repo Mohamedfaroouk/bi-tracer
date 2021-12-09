@@ -1,6 +1,8 @@
 import 'package:bi_tracer/models/mother_model.dart';
+import 'package:bi_tracer/screens/add_baby.dart';
 import 'package:bi_tracer/shared/auth_button.dart';
 import 'package:bi_tracer/shared/constants.dart';
+import 'package:bi_tracer/shared/navigator.dart';
 import 'package:bi_tracer/shared/text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -84,7 +86,8 @@ class MotherDetails extends StatelessWidget {
                     label: "Babies"),
                 MaterialButtonDesign(
                     pressed: () {
-                      print("S");
+                      navigate(context: context ,route: AddBaby(mother: mother,));
+
                     },
                     minWidth: 300,
                     color: mainColor,

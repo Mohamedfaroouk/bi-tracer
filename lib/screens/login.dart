@@ -1,7 +1,11 @@
+import 'package:bi_tracer/firebase/auth.dart';
+import 'package:bi_tracer/screens/reset_pass.dart';
 import 'package:bi_tracer/shared/auth_button.dart';
 import 'package:bi_tracer/shared/constants.dart';
+import 'package:bi_tracer/shared/navigator.dart';
 import 'package:bi_tracer/shared/textfield.dart';
 import 'package:bi_tracer/shared/validation.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -19,11 +23,14 @@ class _LogInState extends State<LogIn> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+    FirebaseAuth.instance.authStateChanges().listen((User? user) async {
       if (user == null) {
       } else {
-      // Navigator.pushReplacementNamed(context, FirstScreen.id);
-        print('User is signed in!');
+     // Navigator.pushReplacementNamed(context, FirstScreen.id);
+
+        checkLog(context , user.uid);
+
+      //  print('User is signed in!');
       }
     });
   }
@@ -73,10 +80,22 @@ class _LogInState extends State<LogIn> {
                 height: 15,
               ),
               MaterialButtonDesign(
-                  pressed: () {},
+                  pressed: () async {
+                   Auth().login(emailController.text, passController.text, context) ;
+
+                  },
                   minWidth: 250,
                   color: mainColor,
-                  label: 'Login')
+                  label: 'Login'),
+              SizedBox(
+                height: 15,
+              ),
+              MaterialButtonText(
+                pressed: (){
+                  navigate(context: context, route: ResetPassword());
+                },
+                label: 'Forget password'
+              )
             ],
           ),
         ),

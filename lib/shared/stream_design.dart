@@ -12,7 +12,16 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-Widget streamDesign(Stream<QuerySnapshot> stream, model, String type) {
+Widget streamDesign(Stream<QuerySnapshot> stream, model, String type ) {
+  bool drOrNo(){
+    if(type == 'doctor'){
+      return true;
+    }
+    else{
+      return false;
+    }
+
+  }
   return StreamBuilder<QuerySnapshot>(
     stream: stream,
     builder: (context, snapshot) {
@@ -27,7 +36,7 @@ Widget streamDesign(Stream<QuerySnapshot> stream, model, String type) {
         child: ListView.builder(
           itemBuilder: (context, index) {
             final list = snapshot.data!.docs.map((e) {
-              return sss(type, e);
+              return sss(type, e );
             }).toList();
             return Column(
               children: [
@@ -42,6 +51,7 @@ Widget streamDesign(Stream<QuerySnapshot> stream, model, String type) {
                       navigate(
                           context: context,
                           route: DoctorDetails(doctor: list[index]));
+
                     }
                     if (type == "baby") {
                       navigate(
@@ -54,7 +64,7 @@ Widget streamDesign(Stream<QuerySnapshot> stream, model, String type) {
                         Colors.primaries[min(list[index].name!.length, 17)],
                     child: Text(list[index].name![0].toUpperCase()),
                   ),
-                  title: Text("Dr. " + list[index].name!),
+                  title: Text(drOrNo()?'Dr. '+ list[index].name!:"" + list[index].name!),
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .75,
@@ -73,8 +83,9 @@ Widget streamDesign(Stream<QuerySnapshot> stream, model, String type) {
   );
 }
 
-sss(type, e) {
+sss(type, e , ) {
   if (type == "mother") {
+
     return Mother.fromMap(e.data() as Map<String, dynamic>);
   }
   if (type == "doctor") {

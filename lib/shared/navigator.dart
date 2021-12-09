@@ -7,5 +7,10 @@ void navigate({required BuildContext context, required Widget route}) {
     context,
     MaterialPageRoute(builder: (context) => route),
   );
+}void navigateReplacement({required BuildContext context, required Widget route}) {
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(builder: (context) => route),
+  );
 }
 

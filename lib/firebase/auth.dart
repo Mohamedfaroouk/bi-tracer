@@ -1,4 +1,8 @@
+import 'package:bi_tracer/screens/home.dart';
+import 'package:bi_tracer/screens/mothers.dart';
+import 'package:bi_tracer/shared/navigator.dart';
 import 'package:bi_tracer/shared/snackbar.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +38,8 @@ class Auth {
       );
 
       if (userCredential != null) {
-        // Navigator.pushReplacementNamed(context, FirstScreen.id);
+        checkLog(context , userCredential.user!.uid);
+
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
@@ -47,4 +52,20 @@ class Auth {
       print('Wrong password provided for that user.');
     }
   }
+}
+
+checkLog(BuildContext context , String uid )async{
+
+  // Navigator.pushReplacementNamed(context, FirstScreen.id);
+  final log = await   FirebaseFirestore.instance.collection('admin')
+      .doc(uid)
+      .get();
+  final log2 = await   FirebaseFirestore.instance.collection('doctor')
+      .doc(uid)
+      .get();
+
+
+
+
+  log.data() != null ? navigateReplacement(context: context, route: Home()):log.data() != null ? navigateReplacement(context: context, route: Mothers()): ScaffoldMessenger.of(context).showSnackBar(snac('User not found'));
 }

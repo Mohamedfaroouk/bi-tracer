@@ -13,18 +13,18 @@ class ResetPassword extends StatefulWidget {
 
 class _ResetPasswordState extends State<ResetPassword> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  late TextEditingController restPassword;
+  late TextEditingController email;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    restPassword = TextEditingController();
+    email = TextEditingController();
   }
 
   @override
   void dispose() {
-    restPassword.dispose();
+    email.dispose();
 
     super.dispose();
   }
@@ -56,10 +56,10 @@ class _ResetPasswordState extends State<ResetPassword> {
                 height: 20,
               ),
               LoginTextField(
-                  controller: restPassword,
-                  keyboardType: TextInputType.visiblePassword,
-                  label: "Confirm Password",
-                  validate: Validation().passwordValidation
+                  controller: email,
+                  keyboardType: TextInputType.emailAddress,
+                  label: "Enter Email",
+                  validate: Validation().defaultValidation
                 ),
               SizedBox(
                 height: 15,
