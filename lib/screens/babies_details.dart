@@ -36,6 +36,12 @@ class BabyDetails extends StatelessWidget {
         stream: //null,
             FireStoreHelper.getBabyDataById(baby.babyId!),
         builder: (context, snapshot) {
+          if (snapshot.hasError) {
+            return Center(child: Text('Something went wrong'));
+          }
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator());
+          }
           final baby =
               Baby.fromMap(snapshot.data!.data() as Map<String, dynamic>);
           return Scaffold(
@@ -134,7 +140,7 @@ class BabyDetails extends StatelessWidget {
                                 baby.babyId, "showCamera", !baby.showCamera!);
                           },
                           icon: FaIcon(FontAwesomeIcons.camera),
-                          color: baby.showCamera ?? false ? mainColor : null,
+                          color: baby.showCamera! ? mainColor : null,
                         ),
                         subtitle: Text("Press here to show camera"),
                         onTap: () {
