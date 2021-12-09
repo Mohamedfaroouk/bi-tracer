@@ -21,20 +21,23 @@ class FireStoreHelper {
   }
 
   static linkMotherToDoctor(Doctor doctor, Mother mother) {
-    firestore.collection("mothers").doc(mother.uid).update({"doctor": doctor});
+    firestore
+        .collection("mothers")
+        .doc(mother.uid)
+        .update({"doctor": doctor.toMap()});
   }
 
   static Stream<QuerySnapshot> getBabysforMother(Mother mother) {
     return firestore
         .collection('babies')
-        .where("mother", isEqualTo: mother)
+        .where("mother", isEqualTo: mother.toMap())
         .snapshots();
   }
 
   static Stream<QuerySnapshot> getMothersbyDoctor(Doctor doctor) {
     return firestore
         .collection('mothers')
-        .where("doctor", isEqualTo: doctor)
+        .where("doctor", isEqualTo: doctor.toMap())
         .snapshots();
   }
 
@@ -51,5 +54,12 @@ class FireStoreHelper {
 
   static showOrNot(babyid, field, bool value) {
     firestore.collection('babies').doc(babyid).update({field: value});
+  }
+
+  static Stream<QuerySnapshot> getMotherFiltered(Doctor doctor) {
+    return firestore
+        .collection("mothers")
+        .where("doctor", isNotEqualTo: doctor.toMap())
+        .snapshots();
   }
 }
