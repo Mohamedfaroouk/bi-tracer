@@ -1,11 +1,15 @@
+import 'package:bi_tracer/screens/home.dart';
 import 'package:bi_tracer/screens/login.dart';
 import 'package:bi_tracer/screens/mother_details.dart';
 import 'package:bi_tracer/screens/register_mother.dart';
 import 'package:bi_tracer/screens/reset_pass.dart';
 import 'package:bi_tracer/shared/constants.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -27,7 +31,7 @@ class MyApp extends StatelessWidget {
               iconTheme: IconThemeData(color: Colors.black)),
           scaffoldBackgroundColor: backgroundColor,
           primarySwatch: mainColor),
-      home: MotherDetails(),
+      home: Home(),
     );
   }
 }

@@ -1,7 +1,11 @@
+import 'package:bi_tracer/firebase/auth.dart';
+import 'package:bi_tracer/firebase/firestore.dart';
+import 'package:bi_tracer/models/mother_model.dart';
 import 'package:bi_tracer/shared/auth_button.dart';
 import 'package:bi_tracer/shared/constants.dart';
 import 'package:bi_tracer/shared/textfield.dart';
 import 'package:bi_tracer/shared/validation.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class RegisterMother extends StatefulWidget {
@@ -120,9 +124,20 @@ class _RegisterMotherState extends State<RegisterMother> {
                   height: 15,
                 ),
                 MaterialButtonDesign(
-                    pressed: () {
+                    pressed: () async {
                       if (formKey.currentState!.validate()) {
                         print("S");
+
+                        var user = (await Auth().registerFromAdmin(email.text, password.text)) as UserCredential ;
+                      var mother = Mother(uid: user.user!.uid,
+                      name: motherName.text,
+                        motherPhone: motherPhone.text,
+                        fatherName: fatherName.text,
+                        fatherPhone: fatherPhone.text,
+                      email: email.text,
+
+                      );
+                      FireStoreHelper.createMothers(mother);
                       }
                     },
                     minWidth: 300,

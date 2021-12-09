@@ -1,7 +1,11 @@
+import 'package:bi_tracer/firebase/auth.dart';
+import 'package:bi_tracer/firebase/firestore.dart';
+import 'package:bi_tracer/models/doctor_model.dart';
 import 'package:bi_tracer/shared/auth_button.dart';
 import 'package:bi_tracer/shared/constants.dart';
 import 'package:bi_tracer/shared/textfield.dart';
 import 'package:bi_tracer/shared/validation.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class RegisterDoctor extends StatefulWidget {
@@ -94,7 +98,7 @@ class _RegisterDoctorState extends State<RegisterDoctor> {
                 ),
                 LoginTextField(
                     controller: specialization,
-                    keyboardType: TextInputType.visiblePassword,
+                    keyboardType: TextInputType.text,
                     label: "Specialization",
                     validate: Validation().emailValidation),
                 SizedBox(
@@ -120,9 +124,18 @@ class _RegisterDoctorState extends State<RegisterDoctor> {
                   height: 15,
                 ),
                 MaterialButtonDesign(
-                    pressed: () {
+                    pressed: () async {
                       if (formKey.currentState!.validate()) {
                         print("S");
+                        var user = (await Auth().registerFromAdmin(emailAdress.text, password.text)) as UserCredential ;
+                     var doctor = Doctor(uid: user.user!.uid,
+                         name: doctorName.text,
+                       phoneNumber: PhoneNumber.text,
+                       adress: adress.text,
+                       emailAdress: emailAdress.text,
+                       specialization: specialization.text,
+                     );
+                        FireStoreHelper.createDoctor(doctor);
                       }
                     },
                     minWidth: 300,
