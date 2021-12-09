@@ -12,7 +12,11 @@ class Baby {
   String? heartPulse;
   String? yellowColor;
   String? camera;
-
+  String? babyId;
+  bool? showTemp;
+  bool? showGps;
+  bool? showHeartpulse;
+  bool? showYellowColor;
   Mother? mother;
   Baby({
     this.name,
@@ -24,6 +28,11 @@ class Baby {
     this.heartPulse,
     this.yellowColor,
     this.camera,
+    this.babyId,
+    this.showTemp,
+    this.showGps,
+    this.showHeartpulse,
+    this.showYellowColor,
     this.mother,
   });
 
@@ -38,6 +47,11 @@ class Baby {
       'heartPulse': heartPulse,
       'yellowColor': yellowColor,
       'camera': camera,
+      'babyId': babyId,
+      'showTemp': showTemp,
+      'showGps': showGps,
+      'showHeartpulse': showHeartpulse,
+      'showYellowColor': showYellowColor,
       'mother': mother?.toMap(),
     };
   }
@@ -53,6 +67,13 @@ class Baby {
       heartPulse: map['heartPulse'] != null ? map['heartPulse'] : null,
       yellowColor: map['yellowColor'] != null ? map['yellowColor'] : null,
       camera: map['camera'] != null ? map['camera'] : null,
+      babyId: map['babyId'] != null ? map['babyId'] : null,
+      showTemp: map['showTemp'] != null ? map['showTemp'] : null,
+      showGps: map['showGps'] != null ? map['showGps'] : null,
+      showHeartpulse:
+          map['showHeartpulse'] != null ? map['showHeartpulse'] : null,
+      showYellowColor:
+          map['showYellowColor'] != null ? map['showYellowColor'] : null,
       mother: map['mother'] != null ? Mother.fromMap(map['mother']) : null,
     );
   }
@@ -71,6 +92,11 @@ class Baby {
     String? heartPulse,
     String? yellowColor,
     String? camera,
+    String? babyId,
+    bool? showTemp,
+    bool? showGps,
+    bool? showHeartpulse,
+    bool? showYellowColor,
     Mother? mother,
   }) {
     return Baby(
@@ -83,6 +109,11 @@ class Baby {
       heartPulse: heartPulse ?? this.heartPulse,
       yellowColor: yellowColor ?? this.yellowColor,
       camera: camera ?? this.camera,
+      babyId: babyId ?? this.babyId,
+      showTemp: showTemp ?? this.showTemp,
+      showGps: showGps ?? this.showGps,
+      showHeartpulse: showHeartpulse ?? this.showHeartpulse,
+      showYellowColor: showYellowColor ?? this.showYellowColor,
       mother: mother ?? this.mother,
     );
   }

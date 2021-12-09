@@ -1,3 +1,9 @@
+import 'package:bi_tracer/models/baby_model.dart';
+import 'package:bi_tracer/models/doctor_model.dart';
+import 'package:bi_tracer/models/mother_model.dart';
+import 'package:bi_tracer/screens/babies_details.dart';
+import 'package:bi_tracer/screens/doctor_details.dart';
+import 'package:bi_tracer/screens/home.dart';
 import 'package:bi_tracer/screens/login.dart';
 import 'package:bi_tracer/screens/mother_details.dart';
 import 'package:bi_tracer/screens/register_mother.dart';
@@ -14,20 +20,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Bi-Tracer',
-      theme: ThemeData(
-          appBarTheme: AppBarTheme(
-              color: Colors.transparent,
-              titleTextStyle: TextStyle(
-                  color: Colors.black,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500),
-              elevation: 0,
-              iconTheme: IconThemeData(color: Colors.black)),
-          scaffoldBackgroundColor: backgroundColor,
-          primarySwatch: mainColor),
-      home: MotherDetails(),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Bi-Tracer',
+        theme: ThemeData(
+            appBarTheme: AppBarTheme(
+                color: Colors.transparent,
+                titleTextStyle: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500),
+                elevation: 0,
+                iconTheme: IconThemeData(color: Colors.black)),
+            scaffoldBackgroundColor: backgroundColor,
+            primarySwatch: mainColor),
+        home: Home());
   }
 }
