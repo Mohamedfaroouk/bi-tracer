@@ -40,4 +40,11 @@ class FireStoreHelper {
   static Stream<QuerySnapshot> getCollection(String collectionName) {
     return firestore.collection(collectionName).snapshots();
   }
+
+  static Stream<DocumentSnapshot> getBabyDataById(String babyId) {
+    return FirebaseFirestore.instance
+        .collection('babies')
+        .doc(babyId)
+        .snapshots();
+  }
 }

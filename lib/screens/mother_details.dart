@@ -10,13 +10,13 @@ class MotherDetails extends StatelessWidget {
   Mother mother;
   @override
   Widget build(BuildContext context) {
-    mother = Mother(
+    /*  mother = Mother(
       email: "sdsd@gmail.com",
       name: "sara ahmed ",
       fatherName: "ahmed",
       fatherPhone: "010123123",
       motherPhone: "0123124124",
-    );
+    ); */
     return Scaffold(
       appBar: AppBar(
         title: Text("Mother Profile"),
