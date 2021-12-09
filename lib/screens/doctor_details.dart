@@ -10,12 +10,12 @@ class DoctorDetails extends StatelessWidget {
   Doctor doctor;
   @override
   Widget build(BuildContext context) {
-    doctor = Doctor(
+    /*   doctor = Doctor(
       emailAdress: "sdsd@gmail.com",
       name: "sara ahmed ",
       specialization: "ahmed",
       phoneNumber: "010123123",
-    );
+    ); */
     return Scaffold(
       appBar: AppBar(
         title: Text("Doctor Profile"),
@@ -53,19 +53,19 @@ class DoctorDetails extends StatelessWidget {
                 ListTile(
                   title: Text("Doctor number"),
                   trailing: FaIcon(FontAwesomeIcons.phone),
-                  subtitle: Text(doctor.phoneNumber!),
+                  subtitle: Text(doctor.phoneNumber ?? "no phone"),
                 ),
                 Divider(),
                 ListTile(
                   trailing: FaIcon(FontAwesomeIcons.envelope),
                   title: Text("Doctor Email"),
-                  subtitle: Text(doctor.emailAdress!),
+                  subtitle: Text(doctor.emailAdress ?? "no adress"),
                 ),
                 Divider(),
                 ListTile(
                   title: Text("Doctor Specialization"),
                   trailing: FaIcon(FontAwesomeIcons.male),
-                  subtitle: Text(doctor.specialization!),
+                  subtitle: Text(doctor.specialization ?? "no spec"),
                 ),
                 Divider(),
                 MaterialButtonDesign(

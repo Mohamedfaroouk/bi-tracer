@@ -1,3 +1,4 @@
+import 'package:bi_tracer/firebase/firestore.dart';
 import 'package:bi_tracer/models/baby_model.dart';
 import 'package:bi_tracer/models/mother_model.dart';
 import 'package:bi_tracer/shared/auth_button.dart';
@@ -12,7 +13,7 @@ class BabyDetails extends StatelessWidget {
   Baby baby;
   @override
   Widget build(BuildContext context) {
-    baby = Baby(
+    /* baby = Baby(
         gender: "female",
         name: "sara ahmed ",
         temp: "12",
@@ -24,19 +25,13 @@ class BabyDetails extends StatelessWidget {
           fatherPhone: "010123123",
           motherPhone: "0123124124",
         ),
-        yellowColor: "20");
-    Stream<DocumentSnapshot> getBabyDataById(String babyId) {
-      return FirebaseFirestore.instance
-          .collection('babies')
-          .doc(babyId)
-          .snapshots();
-    }
+        yellowColor: "20"); */
 
     return StreamBuilder<DocumentSnapshot>(
-        stream: null,
+        stream: FireStoreHelper.getBabyDataById(baby.babyId!),
         builder: (context, snapshot) {
-          /*  final baby =
-              Baby.fromMap(snapshot.data!.data() as Map<String, dynamic>); */
+          final baby =
+              Baby.fromMap(snapshot.data!.data() as Map<String, dynamic>);
           return Scaffold(
             appBar: AppBar(
               title: Text("Baby Profile"),
