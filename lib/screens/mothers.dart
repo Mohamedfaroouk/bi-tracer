@@ -1,3 +1,11 @@
+import 'dart:math';
+
+import 'package:bi_tracer/firebase/firestore.dart';
+import 'package:bi_tracer/models/mother_model.dart';
+import 'package:bi_tracer/screens/register_mother.dart';
+import 'package:bi_tracer/shared/navigator.dart';
+import 'package:bi_tracer/shared/stream_design.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class Mothers extends StatefulWidget {
@@ -8,6 +16,7 @@ class Mothers extends StatefulWidget {
 }
 
 class _MothersState extends State<Mothers> {
+  Mother _mother =Mother();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,26 +24,11 @@ class _MothersState extends State<Mothers> {
         title: Text('Mothers'),
         centerTitle: true,
       ),
-body:StreamBuilder(
-  stream: null,
-  builder: (snapshot , context ){
-    if (context.hasError) {
-      return Center(child: Text('Something went wrong'));
-    }
-    if (context.connectionState == ConnectionState.waiting) {
-      return Center(child: CircularProgressIndicator());
-    }
-   return Padding(
-     padding: const EdgeInsets.symmetric(horizontal:10 , vertical: 15 ),
-     child: ListView.builder(itemBuilder: (context , index){
-       return ListTile(
-       );
-     },
-       //itemCount: context.data.docs.length,
-     ),
-   );
-  },
-) ,
+body:streamDesign( FireStoreHelper.getCollection('mothers'), _mother, 'mother') ,
+      floatingActionButton: FloatingActionButton.extended(onPressed: (){
+        navigate(context: context, route:RegisterMother() );
+      }, label: Text('Add Mother')),
+
     );
   }
 }

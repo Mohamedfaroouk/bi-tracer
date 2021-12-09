@@ -16,28 +16,28 @@ class FireStoreHelper {
   }
 
   static createBaby(Baby baby, String uid) {
-    firestore.collection("babys").doc(uid).set(baby.toMap());
+    firestore.collection("babies").doc(uid).set(baby.toMap());
   }
 
   static linkMotherToDoctor(Doctor doctor, Mother mother) {
     firestore.collection("mothers").doc(mother.uid).update({"doctor": doctor});
   }
 
-  Stream<QuerySnapshot> getBabysforMother(Mother mother) {
+  static Stream<QuerySnapshot> getBabysforMother(Mother mother) {
     return firestore
-        .collection('babys')
+        .collection('babies')
         .where("mother", isEqualTo: mother)
         .snapshots();
   }
 
-  Stream<QuerySnapshot> getMothersbyDoctor(Doctor doctor) {
+  static Stream<QuerySnapshot> getMothersbyDoctor(Doctor doctor) {
     return firestore
         .collection('mothers')
         .where("doctor", isEqualTo: doctor)
         .snapshots();
   }
 
-  Stream<QuerySnapshot> getCollection(String collectionName) {
-    return firestore.collection('collectionName').snapshots();
+  static Stream<QuerySnapshot> getCollection(String collectionName) {
+    return firestore.collection(collectionName).snapshots();
   }
 }

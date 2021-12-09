@@ -1,3 +1,5 @@
+import 'package:bi_tracer/models/mother_model.dart';
+
 class Validation {
   String? emailValidation(value) {
     String p =
@@ -35,3 +37,4 @@ class Validation {
       return null;
   }
 }
+
