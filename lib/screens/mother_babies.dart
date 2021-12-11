@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:bi_tracer/firebase/firestore.dart';
 import 'package:bi_tracer/models/baby_model.dart';
 import 'package:bi_tracer/models/mother_model.dart';
+import 'package:bi_tracer/screens/babies_details.dart';
+import 'package:bi_tracer/shared/navigator.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +30,11 @@ class MotherBabies extends StatelessWidget {
               itemBuilder: (context, index) => Column(
                 children: [
                   ListTile(
-                    onTap: () {},
+                    onTap: () {
+                      navigate(
+                          context: context,
+                          route: BabyDetails(baby: list[index]));
+                    },
                     leading: CircleAvatar(
                       backgroundColor:
                           Colors.primaries[min(list[index].name!.length, 17)],

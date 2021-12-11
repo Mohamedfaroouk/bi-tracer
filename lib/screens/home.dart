@@ -2,6 +2,8 @@ import 'package:bi_tracer/models/mother_model.dart';
 import 'package:bi_tracer/screens/babies.dart';
 import 'package:bi_tracer/screens/doctors.dart';
 import 'package:bi_tracer/screens/mothers.dart';
+import 'package:bi_tracer/shared/web_screens.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -18,16 +20,18 @@ class _HomeState extends State<Home> {
   static const List<Widget> _widgetOptions = <Widget>[
     Mothers(),
     Doctors(),
-   Babies()
+    Babies()
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    //  backgroundColor: Colors.white,
-
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+      //  backgroundColor: Colors.white,
+      backgroundColor: kIsWeb ? Colors.white : null,
+      body: WebDesign(
+        child: Center(
+          child: _widgetOptions.elementAt(_selectedIndex),
+        ),
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(

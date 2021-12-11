@@ -5,6 +5,7 @@ import 'package:bi_tracer/shared/constants.dart';
 import 'package:bi_tracer/shared/navigator.dart';
 import 'package:bi_tracer/shared/textfield.dart';
 import 'package:bi_tracer/shared/validation.dart';
+import 'package:bi_tracer/shared/web_screens.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -23,17 +24,8 @@ class _LogInState extends State<LogIn> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    FirebaseAuth.instance.authStateChanges().listen((User? user) async {
-      if (user == null) {
-      } else {
-     // Navigator.pushReplacementNamed(context, FirstScreen.id);
-
-        checkLog(context , user.uid);
-
-      //  print('User is signed in!');
-      }
-    });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,8 +73,8 @@ class _LogInState extends State<LogIn> {
               ),
               MaterialButtonDesign(
                   pressed: () async {
-                   Auth().login(emailController.text, passController.text, context) ;
-
+                    Auth().login(
+                        emailController.text, passController.text, context);
                   },
                   minWidth: 250,
                   color: mainColor,
@@ -91,11 +83,10 @@ class _LogInState extends State<LogIn> {
                 height: 15,
               ),
               MaterialButtonText(
-                pressed: (){
-                  navigate(context: context, route: ResetPassword());
-                },
-                label: 'Forget password'
-              )
+                  pressed: () {
+                    navigate(context: context, route: ResetPassword());
+                  },
+                  label: 'Forget password')
             ],
           ),
         ),
