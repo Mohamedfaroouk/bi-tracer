@@ -67,5 +67,5 @@ checkLog(BuildContext context , String uid )async{
 
 
 
-  log.data() != null ? navigateReplacement(context: context, route: Home()):log.data() != null ? navigateReplacement(context: context, route: Mothers()): ScaffoldMessenger.of(context).showSnackBar(snac('User not found'));
+  log.data() != null ? navigateReplacement(context: context, route: Home()):log2.data() != null ? navigateReplacement(context: context, route: Mothers()): ScaffoldMessenger.of(context).showSnackBar(snac('User not found'));
 }
