@@ -28,9 +28,10 @@ class FireStoreHelper {
   }
 
   static Stream<QuerySnapshot> getBabysforMother(Mother mother) {
+    var newMother = mother.copyWith(doctor: null);
     return firestore
         .collection('babies')
-        .where("mother", isEqualTo: mother.toMap())
+        .where("mother", isEqualTo: newMother.toMap())
         .snapshots();
   }
 

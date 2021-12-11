@@ -1,5 +1,6 @@
 import 'package:bi_tracer/models/mother_model.dart';
 import 'package:bi_tracer/screens/add_baby.dart';
+import 'package:bi_tracer/screens/mother_babies.dart';
 import 'package:bi_tracer/shared/auth_button.dart';
 import 'package:bi_tracer/shared/constants.dart';
 import 'package:bi_tracer/shared/navigator.dart';
@@ -79,15 +80,20 @@ class MotherDetails extends StatelessWidget {
                 Divider(),
                 MaterialButtonDesign(
                     pressed: () {
-                      print("S");
+                      navigate(
+                          context: context,
+                          route: MotherBabies(mother: mother));
                     },
                     minWidth: 300,
                     color: mainColor,
                     label: "Babies"),
                 MaterialButtonDesign(
                     pressed: () {
-                      navigate(context: context ,route: AddBaby(mother: mother,));
-
+                      navigate(
+                          context: context,
+                          route: AddBaby(
+                            mother: mother,
+                          ));
                     },
                     minWidth: 300,
                     color: mainColor,
