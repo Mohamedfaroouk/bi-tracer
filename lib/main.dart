@@ -1,17 +1,21 @@
-import 'package:bi_tracer/models/baby_model.dart';
-import 'package:bi_tracer/screens/babies_details.dart';
-import 'package:bi_tracer/screens/home.dart';
 import 'package:bi_tracer/screens/login.dart';
-import 'package:bi_tracer/screens/mother_details.dart';
-import 'package:bi_tracer/screens/register_mother.dart';
-import 'package:bi_tracer/screens/reset_pass.dart';
+
 import 'package:bi_tracer/shared/constants.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+
+  await Firebase.initializeApp(
+    // options: FirebaseOptions(
+    //   apiKey: "AIzaSyC2IkRd-7QdQ2AhJhhNgbmxfXfw30hYOBk",
+    //   appId: "1:425507352046:web:d7ab2058abab3f652cb2ff",
+    //   messagingSenderId: "425507352046",
+    //   projectId: "bi-trace-ff9cd",
+    //   storageBucket: "bi-trace-ff9cd.appspot.com",
+    //   ),
+      );
   runApp(MyApp());
 }
 
